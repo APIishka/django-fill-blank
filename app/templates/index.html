@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div style="padding-top: 90px;">
+        <h1>Welcome to the Python Fool Test!</h1>
+        <p>This test consists of multiple-choice questions.</p>
+        <p>Start the test by navigating to the <a href="{% url 'question_detail' test_id=test_id question_id=first_question.id %}">first question</a>.</p>
+    </div>
+{% endblock %}
