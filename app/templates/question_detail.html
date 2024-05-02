@@ -7,12 +7,10 @@
             <div class="question-item" style="padding-bottom: 70px;">
                 <h3 style="padding-bottom: 20px;">Exercise {{ question.id }}</h3>
                 <p>{{ question.description }}</p>
-                <div class="question-text-container" style="background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Roboto Mono', monospace;">
-                    <p style="margin: 0;">{{ question.text }}</p>
+                <div class="question-text-container" style="background-color: #f0f0f0; padding: 10px; font-family: 'Roboto Mono', monospace;">
+                    <p style="margin: 0;">{{ formatted_text|safe }}</p>
                 </div>
             </div>
-            <label for="answer">Your Answer:</label>
-            <input type="text" id="answer" name="answer">
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
     </div>

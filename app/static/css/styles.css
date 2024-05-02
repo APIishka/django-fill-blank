@@ -8,3 +8,11 @@ body {
   margin-bottom: 10px;
   font-family: 'Roboto Mono', monospace;
 }
+
+input {
+  border: none; outline: none; background: transparent; box-shadow: none;
+}
+
+input:focus {
+  border: none; outline: none; background: transparent; box-shadow: none;
+}
