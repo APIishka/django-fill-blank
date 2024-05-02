@@ -1,0 +1,57 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div>
+        <h3>User Results</h3>
+        <p>Percentage of Correct Answers: {{ percentage_correct }}%</p>
+        <h2>User Responses</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Your Answer</th>
+                <th scope="col">Correct Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user_response in user_responses %}
+                <tr>
+                    <td>{{ user_response.question.description }}</td>
+                    <td>{{ user_response.answer_text }}</td>
+                    <td>
+                    {% for answer in user_response.question.answer_set.all %}
+                        {{ answer.text }}
+                    {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        <div>
+            <a href="{% url 'index' %}" class="btn btn-primary">Home</a>
+            <a href="{% url 'question_detail' test_id=1 question_id=1 %}" class="btn btn-secondary">Repeat Test</a>
+        </div>
+        <script>
+            window.addEventListener('beforeunload', function() {
+                fetch('/delete_user_responses/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({})
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('User responses deleted successfully');
+                    } else {
+                        console.error('Failed to delete user responses');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting user responses:', error);
+                });
+            });
+        </script>
+    </div>
+{% endblock %}

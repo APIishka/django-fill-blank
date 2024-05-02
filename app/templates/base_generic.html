@@ -16,19 +16,17 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Python Fool</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    {% comment %} <a class="dropdown-item" href="{% url 'operator-question-view' question_id %}">Question 1</a> {% endcomment %}
-                </ul>
-            </div>
         </div>
     </nav>
     <div class="container">
         {% block content %}{% endblock %}
     </div>
+
+    <footer class="footer mt-auto py-3 bg-light" style="position: fixed; left: 0; bottom: 0; width: 100%;">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 αятєм ρℓιѕнкα. All rights reserved.</span>
+        </div>
+    </footer>
 
 <script>
 </script>
